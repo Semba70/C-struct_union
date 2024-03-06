@@ -126,7 +126,32 @@ int main(void)
 メンバにアクセスするという流れになる。
 
 ### typedef
+構造体型の名前を毎回「struct Student_tag」のように記述する音は少々面倒なので省略が可能。
+```
+#include <stdio.h>
 
+#define STUDENT_NAME_LEN 32         // 生徒の名前データの最大長
+
+// 生徒のデータ
+struct Student_tag {
+    char  name[STUDENT_NAME_LEN];
+    int   grade;
+    int   class;
+    int   score;
+};
+typedef struct Student_tag Student;
+
+int main(void)
+{
+    Student student = {"Saitou Takashi", 2, 3, 80};
+
+    printf("name: %s\n", student.name);
+    printf("grade: %d\n", student.grade);
+    printf("class: %d\n", student.class);
+    printf("score: %d\n", student.score);
+}
+```
+構造体を定義してからtypedefによって別名Student
 ### 比較
 ### 要旨指示子
 ### 複合リテラル
